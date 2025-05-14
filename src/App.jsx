@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { useRoutes } from "react-router-dom";
-
+import request from "./services";
 import routes from "./router/routes";
 
 const App = memo(() => {
