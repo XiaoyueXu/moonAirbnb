@@ -10,11 +10,11 @@ import "./assets/css/index.less";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Suspense fallback="loading">
-      <HashRouter>
-        <App />
-      </HashRouter>
-    </Suspense>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <Suspense fallback="loading">
+    <HashRouter>
+      <App />
+    </HashRouter>
+  </Suspense>
+  // </React.StrictMode>
 );
