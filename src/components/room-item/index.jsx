@@ -6,7 +6,7 @@ const RoomItem = memo((props) => {
   const { roomInfo } = props;
 
   return (
-    <RoomItemWrapper>
+    <RoomItemWrapper verifyColor={roomInfo?.verify_info?.text_color || "#39576a"}>
       <div className="room-item">
         <div className="room-image-outer">
           <div className="room-image-inner">
@@ -16,7 +16,8 @@ const RoomItem = memo((props) => {
         <div className="message">
           {roomInfo?.verify_info?.messages?.join("·")}
         </div>
-        <div className="message">{roomInfo?.name}</div>
+        <div className="name">{roomInfo?.name}</div>
+        <div className="price">{roomInfo?.price_format + '/晚'}</div>
       </div>
     </RoomItemWrapper>
   );

@@ -7,6 +7,21 @@ export const RoomItemWrapper = styled.div`
     padding: 8px;
     box-sizing: border-box;
     margin-left: -8px;
+    .message {
+      font-size: 12px;
+      font-weight: 700;
+      color: #39576a;
+      margin: 10px 0 5px;
+    }
+    .name {
+      font-size: 16px;
+      font-weight: 700;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .price {
+      margin: 8px 0;
+    }
   }
   .room-image-outer {
     width: 100%;
