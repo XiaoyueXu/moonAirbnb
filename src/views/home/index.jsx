@@ -7,7 +7,7 @@ import { fetchHomeDataAction } from "@/store/modules/home";
 import { HomeWrapper } from "./style";
 import HomeBanner from "./c-cpns/home-banner/HomeBanner";
 import SectionHeader from "@/components/section-header";
-import RoomItem from "@/components/room-item";
+import SectionList from "@/components/section-list";
 
 const Home = memo(() => {
   const dispatch = useDispatch();
@@ -30,12 +30,9 @@ const Home = memo(() => {
             subTitle={goodPriceInfo.subTitle}
           ></SectionHeader>
         </div>
-        <div className="room-item-list">
-          {goodPriceInfo?.list &&
-            goodPriceInfo.list.slice(0, 8).map((item) => {
-              return <RoomItem key={item.id} roomInfo={item} itemWidth={'25%'} />;
-            })}
-        </div>
+        {goodPriceInfo?.list && (
+          <SectionList roomList={goodPriceInfo.list.slice(0, 8)} />
+        )}
       </div>
     </HomeWrapper>
   );

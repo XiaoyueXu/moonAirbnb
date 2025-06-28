@@ -16,6 +16,11 @@ export const RoomItemWrapper = styled.div`
     .name {
       font-size: 16px;
       font-weight: 700;
+
+      /* TODO: 只显示两行，超出部分显示... */
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
       overflow: hidden;
       text-overflow: ellipsis;
     }
@@ -37,6 +42,18 @@ export const RoomItemWrapper = styled.div`
     > img {
       width: 100%;
       height: 100%;
+    }
+  }
+  .bottom-info {
+    display: flex;
+    align-items: center;
+    .MuiRating-icon {
+      margin: -1px;
+    }
+    .bottom-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: #484848;
     }
   }
 `;

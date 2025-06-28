@@ -8,12 +8,6 @@ const HomeWrapper = styled.div`
     .good-price {
       margin-top: 30px;
     }
-    .room-item-list {
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0;
-    }
   }
 `;
 
