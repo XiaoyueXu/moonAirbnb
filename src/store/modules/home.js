@@ -1,4 +1,8 @@
-import { getHomeGoodPriceData, getHomeHighScoreData } from "@/services";
+import {
+  getHomeGoodPriceData,
+  getHomeHighScoreData,
+  getHomeDiscountData,
+} from "@/services";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 /** 写法一：异步action TODO: 推荐这样做，但是这样做的代码量比较大 */
@@ -27,9 +31,11 @@ export const fetchHomeDataAction = createAsyncThunk(
     getHomeGoodPriceData().then((res) => {
       dispatch(changeGoodPriceInfoAction(res)); //将接口返回的高性价比数据更新至store
     });
-
     getHomeHighScoreData().then((res) => {
       dispatch(changeHighScoreInfoAction(res)); //将接口返回的高评分数据更新至store
+    });
+    getHomeDiscountData().then((res) => {
+      dispatch(changeDiscountInfoAction(res)); //将接口返回的折扣数据更新至store
     });
   }
 );
@@ -39,15 +45,20 @@ const homeSlice = createSlice({
   initialState: {
     goodPriceInfo: {}, //性价比房源数据
     highScoreInfo: {}, //高评分房源数据
+    discountInfo: {}, //折扣数据
   },
   reducers: {
-    // 子组件中只能通过该方法来修改性价比房源数据
+    // 子组件必须通过action来更新redux中的数据
     changeGoodPriceInfoAction: (state, { payload }) => {
       state.goodPriceInfo = payload;
     },
-
     changeHighScoreInfoAction: (state, { payload }) => {
       state.highScoreInfo = payload;
+    },
+    changeDiscountInfoAction: (state, { payload }) => {
+      console.log("discount: ", payload);
+      
+      state.discountInfo = payload;
     },
   },
   extraReducers: (builder) => {
@@ -66,6 +77,9 @@ const homeSlice = createSlice({
   },
 });
 
-export const { changeGoodPriceInfoAction, changeHighScoreInfoAction } =
-  homeSlice.actions;
+export const {
+  changeGoodPriceInfoAction,
+  changeHighScoreInfoAction,
+  changeDiscountInfoAction,
+} = homeSlice.actions;
 export default homeSlice.reducer;

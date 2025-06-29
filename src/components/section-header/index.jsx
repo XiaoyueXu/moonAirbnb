@@ -4,19 +4,19 @@ import React, { memo } from "react";
 import { SectionHeaderWrapper } from "./style";
 
 const SectionHeader = memo((props) => {
-  const { title, subTitle = "" } = props;
+  const { title, subtitle = "" } = props;
 
   return (
     <SectionHeaderWrapper>
       <div className="title">{title}</div>
-      <div className="subtitle">{subTitle}</div>
+      <div className="subtitle">{subtitle}</div>
     </SectionHeaderWrapper>
   );
 });
 
 SectionHeader.propTypes = {
   title: PropTypes.string,
-  subTitle: PropTypes.string,
+  subtitle: PropTypes.string,
 };
 
 export default SectionHeader;

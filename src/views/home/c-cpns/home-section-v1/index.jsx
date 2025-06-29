@@ -6,22 +6,23 @@ import SectionList from "@/components/section-list";
 import { SectionWrapper } from "./style";
 
 const SectionV1Wrapper = memo((props) => {
-  const { sectionData } = props;
+  const { sectionData, rowNum = 4 } = props;
 
   return (
     <SectionWrapper>
       <SectionHeader
         title={sectionData.title}
-        subTitle={sectionData.subTitle}
+        subtitle={sectionData.subtitle}
       />
       {sectionData?.list && (
-        <SectionList roomList={sectionData.list.slice(0, 8)} />
+        <SectionList rowNum={rowNum} roomList={sectionData.list.slice(0, 8)} />
       )}
     </SectionWrapper>
   );
 });
 
 SectionV1Wrapper.propTypes = {
+  rowNum: PropTypes.number,
   sectionData: PropTypes.object,
 };
 
