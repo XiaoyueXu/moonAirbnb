@@ -10,8 +10,7 @@ import {
 } from "@/store/modules/home";
 import { HomeWrapper } from "./style";
 import HomeBanner from "./c-cpns/home-banner/HomeBanner";
-import SectionHeader from "@/components/section-header";
-import SectionList from "@/components/section-list";
+import SectionV1Wrapper from "./c-cpns/home-section-v1";
 
 const Home = memo(() => {
   const dispatch = useDispatch();
@@ -44,29 +43,13 @@ const Home = memo(() => {
 
   return (
     <HomeWrapper>
+      {/* 首页图片 */}
       <HomeBanner />
       <div className="content">
         {/* 高性价比房源 */}
-        <div className="good-price">
-          <SectionHeader
-            title={goodPriceInfo.title}
-            subTitle={goodPriceInfo.subTitle}
-          ></SectionHeader>
-        </div>
-        {goodPriceInfo?.list && (
-          <SectionList roomList={goodPriceInfo.list.slice(0, 8)} />
-        )}
-
+        <SectionV1Wrapper sectionData={goodPriceInfo} />
         {/* 高评分房源 */}
-        <div className="high-score">
-          <SectionHeader
-            title={highScoreInfo?.title}
-            subTitle={highScoreInfo?.subtitle}
-          />
-        </div>
-        {highScoreInfo?.list && (
-          <SectionList roomList={highScoreInfo.list.slice(0, 8)} />
-        )}
+        <SectionV1Wrapper sectionData={highScoreInfo} />
       </div>
     </HomeWrapper>
   );
