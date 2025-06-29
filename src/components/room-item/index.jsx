@@ -7,10 +7,6 @@ import { RoomItemWrapper } from "./style";
 const RoomItem = memo((props) => {
   const { roomInfo } = props;
 
-  const setRate = (event, newValue) => {
-    console.log(newValue);
-  };
-
   return (
     <RoomItemWrapper
       verifyColor={roomInfo?.verify_info?.text_color || "#39576a"}
