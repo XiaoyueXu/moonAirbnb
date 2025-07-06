@@ -53,7 +53,7 @@ const Home = memo(() => {
         {/* 折扣数据 */}
         <div className="discount">
           <SectionHeader title={discountInfo?.title} subtitle={discountInfo?.subtitle} />
-          <SectionTabs />
+          <SectionTabs tabTitles={discountInfo?.dest_list && Object.keys(discountInfo.dest_list)} />
           <SectionList roomList={discountInfo?.dest_list?.["成都"]} rowNum={3} />
         </div>
 

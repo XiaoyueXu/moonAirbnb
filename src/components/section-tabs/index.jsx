@@ -4,11 +4,19 @@ import React, { memo } from "react";
 import { TabsWrapper } from "./style";
 
 const SectionTabs = memo((props) => {
-  return <TabsWrapper>SectionTabs</TabsWrapper>;
+  const { tabTitles } = props;
+  return (
+    <TabsWrapper>
+      {tabTitles &&
+        tabTitles.map((item) => {
+          return <div className="tab">{item}</div>;
+        })}
+    </TabsWrapper>
+  );
 });
 
 SectionTabs.propTypes = {
-  tabTitles: PropTypes.array
+  tabTitles: PropTypes.array,
 };
 
 export default SectionTabs;
